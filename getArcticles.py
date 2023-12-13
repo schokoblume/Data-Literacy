@@ -30,5 +30,10 @@ for a in headlines.find_all('a'):
             
             # get arcticle content
             article_content = requests.get(full_link, timeout=timeout_duration).content
-            print(article_content)
+            # Can use soup for text
+            #soup1 = BeautifulSoup(article_content,'html.parser')
+            #print(soup1.get_text())
+
+            with open("test.html",'wb') as f:
+                        f.write(article_content)
             break
