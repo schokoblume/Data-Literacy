@@ -1,10 +1,13 @@
 import pandas as pd
 import os
 from pathlib import Path
+import matplotlib.pyplot as plt
 
 # Before you run this script, download articles with getArticles.py
 
 # Keywords determine if an article is about war. At least one of them has to be in the headline to count the article.
+# In-word is searched, i.e. for keyword "krieg", "Angriffskrieg" is counted
+keywords = ["krieg", "Krieg", "konflikt", "Konflikt", "Angriff", "angriff"]
 
 # create a data frame with row for each headline: date, each keyword (present: 1, not present: 0), war: at least one keyword present (yes: 1, no: 0)
 # output_file: name of output file
@@ -16,6 +19,8 @@ def create_basic_csv(output_file, keywords, directory, overwrite=False):
         if os.path.exists(output_file):
             print("File already exists. Change file name or enable overwrite.")
 
+    print("Searching files...")
+
     # make data frame
     df = pd.DataFrame(columns=["date"])
 
@@ -23,9 +28,12 @@ def create_basic_csv(output_file, keywords, directory, overwrite=False):
     for file in Path(directory).glob('**/*.txt'):
         filename = os.path.basename(file).split('/')[-1]
         date = filename.replace(".txt", "")
+        # print progress
+        #print(date)
 
         # go through all headlines and check if keywords are contained
-        lines = open(file).readlines()
+        # we used two encodings to download, so try both for reading
+        lines = open(file, encoding="utf-8").readlines()
         for line in lines:
             # create one row per headline
             index = len(df)
@@ -50,7 +58,7 @@ def create_basic_csv(output_file, keywords, directory, overwrite=False):
 def create_accumulated_csv(input_file, output_file, overwrite=False):
     if not overwrite:
         if os.path.exists(output_file):
-            print("File already exists. Change file name or enable overwrite.")
+            print("Output file already exists. Change file name or enable overwrite.")
     if not os.path.exists(input_file):
         print("The specified input file does not exist.")
 
@@ -64,6 +72,7 @@ def create_accumulated_csv(input_file, output_file, overwrite=False):
     
     # sum articles for each date
     for date in dates:
+        #print(date)
         date_df = df.where(df["date"] == date)
         num_articles = date_df["war"].sum()
         # add row in new df
@@ -72,6 +81,6 @@ def create_accumulated_csv(input_file, output_file, overwrite=False):
     # save as csv
     new_df.to_csv(output_file, sep=";")
 
+#create_basic_csv("Spiegel_articles_keywords_ausland_poliktik.csv", keywords, os.getcwd() + "\\spiegel_articles_ausland_politik")
 
-#create_basic_csv("test.csv", ["test"], os.getcwd() + "\\spiegel_articles\\2000", True)
-#create_accumulated_csv("test.csv", "acc_test.csv", True)
+#create_accumulated_csv("Spiegel_articles_keywords_ausland_politik.csv", "Spiegel_articles_accumulated_ausland_politik.csv")
