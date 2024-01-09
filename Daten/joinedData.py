@@ -44,6 +44,7 @@ def median_lenght(survey_input):
 	diffs = []
 	prev_date = None
 	for date_str in survey_df["date"]:
+		print(date_str)
 		date_now = datetime.datetime.strptime(date_str, '%d.%m.%Y').date()
 		if not prev_date == None:
 			difference = prev_date - date_now
@@ -52,6 +53,6 @@ def median_lenght(survey_input):
 
 	return np.median(diffs)
 
-#join_data("survey_values.csv", "spiegel_articles_standardized.csv", "joined_survey_article_standardized_median.csv", median_lenght("survey_values.csv"))
-#join_data("survey_values.csv", "spiegel_articles_standardized.csv", "joined_survey_article_standardized_oneweek.csv", 7)
-#join_data("survey_values.csv", "spiegel_articles_standardized.csv", "joined_survey_article_standardized_twoweeks.csv", 14)
+join_data("survey_values.csv", "spiegel_articles_standardized.csv", "joined_survey_article_standardized_median.csv", median_lenght("survey_values.csv"), True)
+join_data("survey_values.csv", "spiegel_articles_standardized.csv", "joined_survey_article_standardized_oneweek.csv", 7, True)
+join_data("survey_values.csv", "spiegel_articles_standardized.csv", "joined_survey_article_standardized_twoweeks.csv", 14, True)
