@@ -42,22 +42,23 @@ In the data order is the joined_survey_article_standardized_median.csv, which is
 To collect and prepare the data yourself, the code is in the data order.
 
 ## Features
-To provide the Datasets for Analysis by yourself: 
 
 #### Data 
+This code provides the data sets for analysis. 
 1. Data collection: getArcticles.py downloads all Spiegel headlines from 2000 to 2023 in 'politik' and 'Ausland'
 2. Data preprocessing: countKeywordsToCSV.py counts how often the keywords appear in the headlines, spiegel_articles_standardized.csv standardizes the number of war articles per day by dividing the number of war articles in 'Ausland' and 'Politik' by the total number of articles in these sections, joinedData.py joins the survey values with the article war numbers.
 
 Federal election results and survey values are in: survey_values.CSV, federal_election_results.csv.
-
 The final dataset is joined_survey_article_standardized_median.csv.
 
 #### Analysis
-- To better understand the dataset, you can run the OverviewPlots.ipynb, which provides an overview of the entire timeframe and of the most media-relevant times.
+This code allows you to analyze the dataset.
+- OverviewPlots.ipynb provides an overview of the entire time frame and the most media relevant times.
 - In CorrelationAndPermutationTest.ipynb, a correlation analysis between the survey values and the article number is implemented. Furthermore, a permutation test is used to check if the correlation is significant.
 - A linear regression is implemented in RegressionPrediction.ipynb.
 
 #### Exploration
+This code explores the dataset.
 - Get intuition about the most media relevant time based on article number: ArticleNumber.ipynb, ArticleNumberElectionPredictions.ipynb
 - Check keywords for data collection process: CheckKeywords.ipynb
 - compare federl election results with federal survey values: comparison_election_survey.ipynb
