@@ -61,7 +61,7 @@ This code allows you to analyze the dataset.
 This code explores the dataset.
 - Get intuition about the most media relevant time based on article number: ArticleNumber.ipynb, ArticleNumberElectionPredictions.ipynb
 - Check keywords for data collection process: CheckKeywords.ipynb
-- compare federl election results with federal survey values: comparison_election_survey.ipynb
+- Compare federl election results with federal survey values: comparison_election_survey.ipynb
 - Polynomial Regression: PolynomialRegressionPrediction.ipynb, PolynomialRegressionPredictionAllParties.ipynb
 - Explore correlation and permutation tests: PermutationTest.ipynb, CorrelationAllParties.ipynb
 - PCA: PCA.ipynb
