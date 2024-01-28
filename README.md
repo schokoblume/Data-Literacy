@@ -23,7 +23,7 @@ pip install requests
 pip install beautifulsoup4
  ```
 
-For Data Analysis:
+For Analysis:
 ```bash
 pip install scikit-learn
 pip install statsmodels
@@ -51,7 +51,7 @@ Federal election results and survey values are in: survey_values.CSV, federal_el
 
 The final dataset is joined_survey_article_standardized_median.csv.
 
-Data Analysis
+Analysis
 - To better understand the dataset, you can run the OverviewPlots.ipynb, which provides an overview of the entire timeframe and of the most media-relevant times.
 - In CorrelationAndPermutationTest.ipynb, a correlation analysis between the survey values and the article number is implemented. Furthermore, a permutation test is used to check if the correlation is significant.
 - A linear regression is implemented in RegressionPrediction.ipynb.
