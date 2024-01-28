@@ -32,6 +32,7 @@ pip install numpy
 pip install math
 pip install scipy
 pip install matplotlib
+pip install seaborn
 pip install tueplots
 ```
 
