@@ -36,12 +36,12 @@ pip install seaborn
 pip install tueplots
 ```
 
-#### Usage
+## Usage
 
 In the data order is the joined_survey_article_standardized_median.csv, which is required for all analyses.
 To collect and prepare the data yourself, the code is in the data order.
 
-#### Features
+## Features
 To provide the Datasets for Analysis by yourself: 
 
 Data 
