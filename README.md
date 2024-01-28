@@ -15,16 +15,15 @@ This project investigates the correlation between media presence of internationa
 ```
 
 2. Install dependencies:
-We used the newest Pythonversion 3.10.11
-In addition to the standard Python library, you need the dependencies:
+We used the Pythonversion 3.10.11. In addition to the standard Python library, you need the dependencies:
 
-Data
+For Data Collection and Preprocessing:
 ```bash
 pip install requests
 pip install beautifulsoup4
  ```
 
-Data Analysis
+For Data Analysis:
 ```bash
 pip install scikit-learn
 pip install statsmodels
@@ -43,11 +42,14 @@ To collect and prepare the data yourself, the code is in the data order.
 
 #### Features
 To provide the Datasets for Analysis by yourself: 
-Data 
-1. Data collection: getArcticles.py downloads all Spiegel headlines from 2000 to 2023
-2. Data preprocessed:
-Final Dataset
 
+Data 
+1. Data collection: getArcticles.py downloads all Spiegel headlines from 2000 to 2023 in 'politik' and 'Ausland'
+2. Data preprocessing: countKeywordsToCSV.py counts how often the keywords appear in the headlines, spiegel_articles_standardized.csv standardizes the number of war articles per day by dividing the number of war articles in 'Ausland' and 'Politik' by the total number of articles in these sections, joinedData.py joins the survey values with the article war numbers.
+
+Federal election results and survey values are in: survey_values.CSV, federal_election_results.csv.
+
+The final dataset is joined_survey_article_standardized_median.csv.
 
 Data Analysis
 - To better understand the dataset, you can run the OverviewPlots.ipynb, which provides an overview of the entire timeframe and of the most media-relevant times.
@@ -57,6 +59,7 @@ Data Analysis
 Exploration
 - Get intuition about the most media relevant time based on article number: ArticleNumber.ipynb, ArticleNumberElectionPredictions.ipynb
 - Check keywords for data collection process: CheckKeywords.ipynb
+- compare federl election results with federal survey values: comparison_election_survey.ipynb
 - Polynomial Regression: PolynomialRegressionPrediction.ipynb, PolynomialRegressionPredictionAllParties.ipynb
 - Explore correlation and permutation tests: PermutationTest.ipynb, CorrelationAllParties.ipynb
 - PCA: PCA.ipynb
